@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Only You</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div id="app">
+    <div class="particles" id="particles"></div>
+
+    <div id="bg-screen">
+      <div class="bg-text-block">
+        <span class="only-you-main">Only you</span>
+        <span class="only-you-echo">Only you</span>
+        <span class="only-you-echo">Only you</span>
+      </div>
+
+      <div class="bottom-row">
+        <div class="since-block">
+          <span class="since-label">Since</span>
+          <div class="waveform" id="waveform"></div>
+        </div>
+        <span class="slash-divider">////////////////////</span>
+        <span class="wanna-be">Wanna be<br>yours</span>
+      </div>
+
+      <button id="love-btn">Eu te amo</button>
+    </div>
+
+    <div id="reveal-screen">
+      <img src="foto-dela.jpg" alt="❤️" class="girlfriend-photo" id="gf-photo" />
+
+      <span class="heart-anim">❤️</span>
+      <p class="reveal-label">Coração batendo forte</p>
+      <p class="reveal-title" id="reveal-title"></p>
+
+      <div class="time-card">
+        <div class="time-row" id="time-row"></div>
+        <p class="since-date-line">juntos desde 20/11/2025</p>
+      </div>
+
+      <button class="back-btn" id="back-btn">voltar</button>
+    </div>
+  </div>
+
+  <script src="javascript.js"></script>
+</body>
+</html>

@@ -1,0 +1,202 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent; /* Remove o brilho azul ao tocar no telemóvel */
+}
+
+body {
+  background: #0a0a0a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: 'Space Grotesk', sans-serif;
+  overflow: hidden; /* Evita scroll desnecessário no telemóvel */
+}
+
+#app {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0a0a0a;
+}
+
+/* TELA INICIAL */
+#bg-screen {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  transition: opacity 0.6s ease;
+  z-index: 1;
+}
+
+#bg-screen.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.bg-text-block {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.only-you-main {
+  font-size: clamp(2.5rem, 12vw, 4rem);
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  line-height: 1;
+  display: block;
+}
+
+.only-you-echo {
+  font-size: clamp(2.5rem, 12vw, 4rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1.1;
+  display: block;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+}
+
+.bottom-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 340px;
+  margin-bottom: 3rem;
+}
+
+.since-block { display: flex; flex-direction: column; gap: 4px; }
+.since-label { font-size: 10px; color: rgba(255, 255, 255, 0.5); text-transform: uppercase; }
+
+.waveform { display: flex; align-items: center; gap: 3px; height: 30px; }
+.waveform-bar {
+  width: 3px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 2px;
+  animation: wavePulse 1.2s ease-in-out infinite;
+}
+
+@keyframes wavePulse {
+  0%, 100% { transform: scaleY(0.4); }
+  50% { transform: scaleY(1); }
+}
+
+.slash-divider { color: rgba(255, 255, 255, 0.2); font-size: 10px; }
+.wanna-be { font-size: 1rem; font-weight: 700; color: #fff; text-transform: uppercase; text-align: right; }
+
+/* BOTÃO MOBILE OPTIMIZED */
+#love-btn {
+  background: #fff;
+  border: none;
+  color: #0a0a0a;
+  font-family: inherit;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 16px 45px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 5;
+}
+
+#love-btn:active {
+  transform: scale(0.92);
+}
+
+/* TELA REVELAÇÃO */
+#reveal-screen {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.8s ease;
+  z-index: 2;
+  text-align: center;
+}
+
+#reveal-screen.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.girlfriend-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #fff;
+  margin-bottom: 1.5rem;
+  background: #222;
+}
+
+.heart-anim {
+  font-size: 2.5rem;
+  animation: heartbeat 1.2s infinite;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+.reveal-title {
+  font-size: clamp(1.2rem, 5vw, 1.8rem);
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.time-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 1.5rem;
+  width: 100%;
+}
+
+.time-row { display: flex; justify-content: center; gap: 0.8rem; margin-bottom: 0.5rem; }
+.time-number { font-size: 2.2rem; font-weight: 700; color: #fff; display: block; }
+.time-label-small { font-size: 0.6rem; color: rgba(255, 255, 255, 0.5); text-transform: uppercase; }
+
+.back-btn {
+  margin-top: 2rem;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.6);
+  padding: 10px 25px;
+  border-radius: 8px;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+/* PARTÍCULAS */
+.particles { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+.particle { position: absolute; background: #fff; border-radius: 50%; opacity: 0; animation: floatUp 4s linear infinite; }
+
+@keyframes floatUp {
+  0% { transform: translateY(0); opacity: 0; }
+  20% { opacity: 0.6; }
+  100% { transform: translateY(-100vh); opacity: 0; }
+}
